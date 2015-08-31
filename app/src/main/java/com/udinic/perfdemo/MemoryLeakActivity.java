@@ -1,7 +1,6 @@
 package com.udinic.perfdemo;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -24,7 +23,7 @@ import com.udinic.perfdemo.util.UdinicListener;
  * all being done on the CTor.
  *
  */
-public class MemoryLeakActivity extends AppCompatActivity implements UdinicListener {
+public class MemoryLeakActivity extends BaseActivity implements UdinicListener {
 
     String mStringField;
     BigSpendyObject spendyObject = new BigSpendyObject();

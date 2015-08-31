@@ -35,7 +35,7 @@ import java.util.List;
  *      - We can find the service method by following the Thread.run() method, since we see there's
  *      a Thread.start() in the getView() method.
  */
-public class ListServiceCallActivity extends AppCompatActivity {
+public class ListServiceCallActivity extends BaseActivity {
 
     private BgService mService = null;
     private boolean mBound = false;

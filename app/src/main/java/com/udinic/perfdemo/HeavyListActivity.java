@@ -31,7 +31,7 @@ import java.util.Random;
  *      overall time getView() took).
  *      - We caused the GC to run for a while (~20% of the inclusive Real time, on my Nexus 4).
  */
-public class HeavyListActivity extends AppCompatActivity {
+public class HeavyListActivity extends BaseActivity {
 
     private ListView list;
 

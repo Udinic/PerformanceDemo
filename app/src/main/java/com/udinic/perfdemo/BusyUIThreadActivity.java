@@ -1,9 +1,7 @@
 package com.udinic.perfdemo;
 
 import android.animation.ObjectAnimator;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,24 +22,17 @@ import android.widget.ImageView;
  *      - The onclick listener will have high inclusive CPU/Real time, since it's calling fib().
  *
  */
-public class BusyUIThreadActivity extends AppCompatActivity {
-
-    public static final String KEY_NUM_CLICKS = "num_clicks";
-    private SharedPreferences preferences;
+public class BusyUIThreadActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_busy_procs);
-
-        preferences = getSharedPreferences("udini.xml", MODE_PRIVATE);
+        setContentView(R.layout.activity_busy_ui_thread);
 
         Button btn1 = (Button) findViewById(R.id.btn1);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                int clicks = preferences.getInt(KEY_NUM_CLICKS, 0);
-//                preferences.edit().putInt(KEY_NUM_CLICKS, ++clicks).commit();
                 int n = 30;
                 Log.d("PerfDemo", "Start Fib("+n+")");
                 long res = fib(n);
@@ -49,7 +40,6 @@ public class BusyUIThreadActivity extends AppCompatActivity {
             }
         });
 
-//        iv.animate().rotation(360f).start();
 
     }
 

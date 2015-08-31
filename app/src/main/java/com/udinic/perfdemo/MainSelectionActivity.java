@@ -3,12 +3,11 @@ package com.udinic.perfdemo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MainSelectionActivity extends AppCompatActivity {
+public class MainSelectionActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +19,7 @@ public class MainSelectionActivity extends AppCompatActivity {
         createOnClick(R.id.btnMemoryLeakActivity, MemoryLeakActivity.class);
         createOnClick(R.id.btnOverdraw, OverdrawActivity.class);
         createOnClick(R.id.btnHeavyList, HeavyListActivity.class);
-        createOnClick(R.id.btnHeavyRenderingAnim, AnimationActivity.class);
+        createOnClick(R.id.btnHeavyRenderingAnim, HeavyAnimationActivity.class);
     }
 
 
