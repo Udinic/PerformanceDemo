@@ -22,6 +22,7 @@ import android.widget.CompoundButton;
  *      - Alpha overlay - This will set an alpha value to a layout overlay in the center of the
  *      screen. Using transparency we're making the GPU do more complicated rendering, which is shown
  *      as an alert on Systrace.
+ *
  */
 public class HeavyAnimationActivity extends BaseActivity {
 

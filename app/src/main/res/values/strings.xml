@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">PerfDemo</string>
+    <string name="app_name">Perf Demo</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_animation">AnimationActivity</string>
-    <string name="title_activity_list">ListActivity</string>
-    <string name="title_activity_busy_procs">BusyProcsActivity</string>
-    <string name="title_activity_memory">MemoryActivity</string>
-    <string name="title_activity_main_selection">MainSelectionActivity</string>
+    <string name="title_activity_animation">Heavy Animation</string>
+    <string name="title_activity_list">Heavy List scroll</string>
+    <string name="title_activity_busy_procs">Busy UI Thread</string>
+    <string name="title_activity_memory">Memory Leak</string>
+    <string name="title_activity_main_selection">Perf demo</string>
 </resources>

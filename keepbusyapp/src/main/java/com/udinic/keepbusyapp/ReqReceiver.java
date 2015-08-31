@@ -6,12 +6,16 @@ import android.content.Intent;
 import android.util.Log;
 
 /**
- * Created by udi.cohen on 8/20/15.
+ * Broadcast receiver to start that service that will keep the cpu busy.
+ *
+ * Usage:
+ *      adb shell am broadcast -a com.udinic.keepbusyapp.ACTION_KEEP_BUSY
+ *
  */
 public class ReqReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d("ReqReceiver", "onReceive");
+        Log.d("ReqReceiver", "Starting BusyService");
         context.startService(new Intent(context, BusyService.class));
     }
 }

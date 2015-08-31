@@ -7,6 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+/**
+ * Main activity to select the activity you'd like to try.
+ */
 public class MainSelectionActivity extends BaseActivity {
 
     @Override

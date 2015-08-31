@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 /**
- * Created by udi.cohen on 8/20/15.
+ * Service that keeps out CPU busy
  */
 public class BusyService extends Service {
     private static final int SPIN_COUNT = 2000;

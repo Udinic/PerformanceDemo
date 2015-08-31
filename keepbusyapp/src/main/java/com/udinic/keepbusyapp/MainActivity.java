@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * Doesn't do anything, buy we need to start this activity at least once before we can
+ * send a broadcast to our receiver, due to Android security reasons.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
