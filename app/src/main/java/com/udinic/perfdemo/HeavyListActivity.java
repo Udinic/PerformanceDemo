@@ -2,9 +2,8 @@ package com.udinic.perfdemo;
 
 import android.database.DataSetObserver;
 import android.graphics.Color;
-import android.service.notification.NotificationListenerService;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,10 +18,9 @@ import org.apache.commons.lang3.RandomStringUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.zip.Inflater;
 
 
-public class MainActivity extends ActionBarActivity {
+public class HeavyListActivity extends AppCompatActivity {
 
     private ListView list;
 
@@ -119,7 +117,7 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+            LayoutInflater inflater = LayoutInflater.from(HeavyListActivity.this);
 
             String item = (String)getItem(i);
             view = inflater.inflate(R.layout.listitem_row, viewGroup, false);

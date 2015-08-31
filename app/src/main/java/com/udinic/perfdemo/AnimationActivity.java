@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.udinic.perfdemo.util.ViewServer;
+
 public class AnimationActivity extends AppCompatActivity {
 
     @Override
@@ -18,20 +20,35 @@ public class AnimationActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                View view = LayoutInflater.from(v.getContext()).inflate(R.layout.view_animated, null, false);
 
-                findViewById(R.id.udinic).animate()
+                final View view = findViewById(R.id.udinic);
+
+                view.animate()
                     .translationX(240f)
                     .translationY(-600)
                     .alpha(0.2f)
                     .rotation(3000f)
                     .scaleX(2f)
                     .setDuration(8000)
-//                    .withLayer()
+                    .withLayer()
                     .start();
-
-
             }
 
         });
+
+        ViewServer.get(this).addWindow(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ViewServer.get(this).removeWindow(this);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ViewServer.get(this).setFocusedWindow(this);
     }
 
     @Override
