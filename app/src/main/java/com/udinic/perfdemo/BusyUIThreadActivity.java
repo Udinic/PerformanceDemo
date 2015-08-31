@@ -12,7 +12,19 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class BusyProcsActivity extends AppCompatActivity {
+/**
+ * Demonstrates doing work on the UI Thread, and how it affect an animation constantly running.
+ *
+ * Using Systrace, we'll get these observations:
+ *      - We can see how our touch inputs cause the animations to run
+ *      - Some Alerts such as Scheduling delays and long View#draw().
+ *
+ * Using Traceview, we'll get these observations:
+ *      - The fib() method has very high exclusive CPU time.
+ *      - The onclick listener will have high inclusive CPU/Real time, since it's calling fib().
+ *
+ */
+public class BusyUIThreadActivity extends AppCompatActivity {
 
     public static final String KEY_NUM_CLICKS = "num_clicks";
     private SharedPreferences preferences;

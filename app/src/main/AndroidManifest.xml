@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.udinic.perfdemo" >
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".PerfApplication"
@@ -12,11 +12,19 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
+            android:name=".MainSelectionActivity"
+            android:label="@string/title_activity_main_selection" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".HeavyListActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -25,12 +33,11 @@
             android:label="@string/title_activity_animation" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ListActivity"
+            android:name=".ListServiceCallActivity"
             android:label="@string/title_activity_list" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,7 +52,7 @@
         </service>
 
         <activity
-            android:name=".BusyProcsActivity"
+            android:name=".BusyUIThreadActivity"
             android:label="@string/title_activity_busy_procs" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,15 +60,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MemoryActivity"
+            android:name=".MemoryLeakActivity"
             android:label="@string/title_activity_memory" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OverdrawActivity"
-            android:label="OverdrawActivity">
+        <activity
+            android:name=".OverdrawActivity"
+            android:label="OverdrawActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

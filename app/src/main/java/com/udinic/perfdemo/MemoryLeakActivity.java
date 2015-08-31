@@ -9,7 +9,22 @@ import com.udinic.perfdemo.util.BigSpendyObject;
 import com.udinic.perfdemo.util.ListenersManager;
 import com.udinic.perfdemo.util.UdinicListener;
 
-public class MemoryActivity extends AppCompatActivity implements UdinicListener {
+/**
+ * Demonstration of memory leak.
+ *
+ * Start this activity and rotate the screen a few times, then take a heap dump.
+ *
+ * Using the Heap dump, we'll see:
+ *      - The activity has many instances
+ *      - following the reference tree of its instances, we see the Activity is being retained
+ *      by the ListenersManager object.
+ *      - Many instances of BigSpendyObject, even though we don't use it in our code.
+ *
+ * Using Allocation Tracker, we'll see that we have many allocations of BigSpendyObject,
+ * all being done on the CTor.
+ *
+ */
+public class MemoryLeakActivity extends AppCompatActivity implements UdinicListener {
 
     String mStringField;
     BigSpendyObject spendyObject = new BigSpendyObject();

@@ -19,7 +19,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
+/**
+ * Demonstrate heavy list view.
+ *
+ * Using Systrace, we can see that:
+ *      - The frames aren't rendered quick enough (~100ms per frame on my Nexus4).
+ *      - Alerts about inflation during ListView recycling and long View#draw().
+ *
+ * Using Traceview, we see that:
+ *      - getView() was slow, thanks to the LayoutInflater#inflate() calls (took ~90% of the
+ *      overall time getView() took).
+ *      - We caused the GC to run for a while (~20% of the inclusive Real time, on my Nexus 4).
+ */
 public class HeavyListActivity extends AppCompatActivity {
 
     private ListView list;
@@ -27,7 +38,7 @@ public class HeavyListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_heavy_list);
         list = (ListView)findViewById(R.id.list);
         TerAdapter adapter = new TerAdapter();
         adapter.setItems(generateItems());

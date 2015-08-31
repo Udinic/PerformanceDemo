@@ -1,5 +1,6 @@
 package com.udinic.perfdemo;
 
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -18,7 +19,6 @@ public class AnimationActivity extends AppCompatActivity {
         findViewById(R.id.btnStart).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                View view = LayoutInflater.from(v.getContext()).inflate(R.layout.view_animated, null, false);
 
                 final View view = findViewById(R.id.udinic);
 
@@ -30,10 +30,19 @@ public class AnimationActivity extends AppCompatActivity {
                     .scaleX(2f)
                     .setDuration(8000)
                     .withLayer()
+                    .setUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                        @Override
+                        public void onAnimationUpdate(ValueAnimator animation) {
+                            view.findViewById(R.id.btn2).setBackgroundColor((int)(animation.getAnimatedFraction() * 0xF));
+                        }
+                    })
                     .start();
             }
 
         });
+
+        View alphaLayout = findViewById(R.id.alphaLayout);
+        alphaLayout.setAlpha(0.5f);
 
         ViewServer.get(this).addWindow(this);
     }

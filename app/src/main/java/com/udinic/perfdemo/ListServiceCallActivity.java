@@ -19,7 +19,23 @@ import com.udinic.perfdemo.service.BgService;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListActivity extends AppCompatActivity {
+/**
+ * This activity demonstrates a ListView that calls a method on a bound service, on the getView().
+ *
+ * Using Systrace, we'll get these observations:
+ *      - The frames are not rendered quick enough, due to this delay.
+ *      - Alert that the list's getView() is inefficient.
+ *      - Another alert, showing scheduling problem, due to the main thread waiting for the
+ *      thread that calls the service (named "udini-trd_XX") to finish.
+ * Using Traceview, we'll get these observations:
+ *      - getView()'s real time per call is significantly higher than the cpu time/call. That's
+ *      because it waits for the service call to finish.
+ *      - The exclusive CPU time per call for the service's method doWork(), is one of the highest
+ *      in the trace.
+ *      - We can find the service method by following the Thread.run() method, since we see there's
+ *      a Thread.start() in the getView() method.
+ */
+public class ListServiceCallActivity extends AppCompatActivity {
 
     private BgService mService = null;
     private boolean mBound = false;
